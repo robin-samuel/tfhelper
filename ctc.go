@@ -15,7 +15,7 @@ func CTCDecode(output [][][]float32, alphabet string) []string {
 
 		for _, char := range line {
 			maxIdx := slices.Index(char, slices.Max(char))
-			if maxIdx != lastIdx && maxIdx != len(alphabet)-1 {
+			if maxIdx != lastIdx && maxIdx < len(alphabet) {
 				text.WriteRune(rune(alphabet[maxIdx]))
 				lastIdx = maxIdx
 			}
